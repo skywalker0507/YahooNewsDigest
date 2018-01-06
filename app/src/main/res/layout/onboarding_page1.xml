@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomStockchart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="220dp"
+        android:src="@drawable/onboarding_1_atom_stockchart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomSound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/onboarding_1_atom_sound"
+        app:layout_constraintEnd_toStartOf="@+id/ivOnboardingMainbox"
+        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingAtomStockchart"/>
+
+    <ImageView
+        android:id="@+id/ivOnboardingMainbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:src="@drawable/onboarding_1_mainbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginTop="96dp"
+        android:src="@drawable/onboarding_1_atom_quote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="84dp"
+        android:src="@drawable/onboarding_1_atom_video"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/onboarding_1_atom_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingAtomQuote"/>
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomInfographic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/onboarding_1_atom_infographic"
+        app:layout_constraintBottom_toTopOf="@+id/ivOnboardingAtomStockchart"
+        app:layout_constraintEnd_toEndOf="@+id/ivOnboardingAtomStockchart"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivOnboardingAtomWikipedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/onboarding_1_atom_wikipedia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivOnboardingMainbox"
+        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingAtomMap"/>
+
+
+    <TextView
+        android:id="@+id/tvOnboardingTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/comprehensive"
+        android:textSize="@dimen/onboarding_title_text_size"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingMainbox"/>
+
+
+    <TextView
+        android:id="@+id/tvOnboardingDescription1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/comprehensive_description"
+        android:textSize="@dimen/onboarding_desc_text_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOnboardingTitle1"/>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:id="@+id/onboardingCircleGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/onboarding_second_image_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/onboarding_second_image_top_margin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/onboarding_2_circleline"/>
+
+        <com.yahoo.mobile.client.android.atom.ui.view.CircleViewGroup
+            android:id="@+id/onboardingCircle"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/onboarding_second_image_height"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/onboarding_2_sun"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/onboarding_2_moon"/>
+        </com.yahoo.mobile.client.android.atom.ui.view.CircleViewGroup>
+
+        <com.yahoo.mobile.client.android.atom.ui.view.OnboardingDocumentView
+            android:id="@+id/onboardingDocumentView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvOnboardingTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onboardingCircleGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/onboarding_second_title_margin_top"
+        android:text="@string/twice_a_day"
+        android:textSize="@dimen/onboarding_title_text_size"/>
+
+    <TextView
+        android:id="@+id/tvOnboardingDescription2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvOnboardingTitle2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/onboarding_second_desc_margin_top"
+        android:gravity="center"
+        android:text="@string/twice_a_day_description"
+        android:textSize="@dimen/onboarding_desc_text_size"/>
+</RelativeLayout>

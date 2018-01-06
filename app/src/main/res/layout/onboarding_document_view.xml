@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true">
+
+    <ImageView
+        android:id="@+id/onboardingDocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/onboarding_2_document"/>
+
+    <ImageView
+        android:id="@+id/onboardingDocumentAtomBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/onboardingDocument"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/onboarding_page_2_document_first_atom_top_margin"
+        android:src="@drawable/onboarding_2_document_atom_blue"/>
+
+    <ImageView
+        android:id="@+id/onboardingDocumentAtomRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onboardingDocumentAtomBlue"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/onboarding_2_document_atom_red"/>
+
+    <ImageView
+        android:id="@+id/onboardingDocumentAtomOrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onboardingDocumentAtomRed"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/onboarding_2_document_atom_orange"/>
+
+    <ImageView
+        android:id="@+id/onboardingDocumentAtomGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onboardingDocumentAtomOrange"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/onboarding_2_document_atom_green"/>
+</RelativeLayout>
