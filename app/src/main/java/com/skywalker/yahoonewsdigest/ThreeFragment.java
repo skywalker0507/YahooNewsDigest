@@ -1,37 +1,34 @@
 package com.skywalker.yahoonewsdigest;
 
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 /*******************************
  * Created by liuqiang          *
  *******************************
- * data: 2018/1/6               *
+ * data: 2018/1/7               *
  *******************************/
 
-public class Fragment2 extends BaseFragment{
-
-
+public class ThreeFragment extends BaseFragment {
+    private ImageView mImageView;
     @Override
     protected void initView(LayoutInflater inflater, View view, Bundle savedInstanceState) {
-
+        mImageView=view.findViewById(R.id.image);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment2;
+        return R.layout.fragment_3;
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        float p=position+positionOffset;
-        if (p>1&&p<2){
-            Log.e("Fragment2","onPageScrolled-->"+positionOffsetPixels);
-        }
-
+        float x=mImageView.getX();
+        mImageView.setTranslationX(-positionOffsetPixels*0.25f);
+        Log.e("TAG", String.valueOf(mImageView.getX()));
     }
 
     @Override

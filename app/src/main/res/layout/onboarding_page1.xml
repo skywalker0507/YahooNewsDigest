@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
-
     <ImageView
         android:id="@+id/ivOnboardingAtomStockchart"
         android:layout_width="wrap_content"
@@ -56,8 +55,8 @@
         android:id="@+id/ivOnboardingAtomVideo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/onboarding_1_atom_video"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

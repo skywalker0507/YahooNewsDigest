@@ -42,5 +42,6 @@ public abstract class BaseFragment extends Fragment implements ViewPager.OnPageC
 
     protected abstract void initView(LayoutInflater inflater, View view, Bundle savedInstanceState);
 
-    protected abstract @LayoutRes int getLayoutId();
+    protected abstract @LayoutRes
+    int getLayoutId();
 }
