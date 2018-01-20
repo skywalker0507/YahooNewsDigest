@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 /*******************************
  * Created by liuqiang          *
@@ -17,6 +18,7 @@ public class SecondFragment extends BaseFragment {
 
     @Override
     protected void initView(LayoutInflater inflater, View view, Bundle savedInstanceState) {
+        ImageView imageView=view.findViewById(R.id.iv_circleline);
 
     }
 

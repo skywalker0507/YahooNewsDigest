@@ -113,6 +113,7 @@ public class FirstFragment extends BaseFragment {
     private void moveTheSpheres(float pageWidth) {
 
 
+        Log.e("positionOffsetPixels",""+pageWidth);
         float videoPosition = (float) (0.15 * pageWidth);
         if (videoPosition > (-1 * mOriginalXValuesMap.get(mAtomVideo))) {
 
