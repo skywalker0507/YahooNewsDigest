@@ -35,6 +35,8 @@ public class OnboardingDocumentView extends View {
 
     private Bitmap[] mBitmaps = new Bitmap[4];
 
+    private boolean mStartAnimation;
+
     public OnboardingDocumentView(Context context) {
         this(context, null);
     }
@@ -79,13 +81,13 @@ public class OnboardingDocumentView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
+
         setMeasuredDimension(mDocumentWidth+2*HORIZONTAL_PADDING,mDocumentHeight+2+VERTICAL_PADDING);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
 
         canvas.drawRect(HORIZONTAL_PADDING+15, VERTICAL_PADDING-15, HORIZONTAL_PADDING+15 + mDocumentWidth, VERTICAL_PADDING-15+ mDocumentHeight, mPaint);
 
@@ -98,6 +100,10 @@ public class OnboardingDocumentView extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
 
+        if (!mStartAnimation){
+
+            return;
+        }
 
         if (mPosition < 4) {
             for (int i = 0; i < mPosition; i++) {
@@ -111,6 +117,9 @@ public class OnboardingDocumentView extends View {
             for (int i = 0; i < 4; i++) {
                 canvas.drawBitmap(mBitmaps[i], HORIZONTAL_PADDING + 5, leftPositions[i] + 5, null);
             }
+
+            mStartAnimation=false;
+            mPosition=0;
         }
 
     }
@@ -137,6 +146,10 @@ public class OnboardingDocumentView extends View {
 
         }
 
+    }
 
+    public void startAnimation(){
+        mStartAnimation=true;
+        invalidate();
     }
 }

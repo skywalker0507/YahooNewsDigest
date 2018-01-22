@@ -30,6 +30,8 @@ public abstract class BaseFragment extends Fragment implements ViewPager.OnPageC
         mViewPager.addOnPageChangeListener(this);
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

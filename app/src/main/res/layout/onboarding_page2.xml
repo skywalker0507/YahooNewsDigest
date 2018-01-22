@@ -1,64 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@android:color/transparent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/onboardingCircleGroup"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/onboarding_second_image_height"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/onboarding_second_image_top_margin">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
 
-        <ImageView
+        <com.skywalker.yahoonewsdigest.OnboardingCircleView
+            android:id="@+id/OnboardingCircleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@drawable/onboarding_2_circleline"/>
+            android:layout_marginTop="100dp"/>
 
-        <com.yahoo.mobile.client.android.atom.ui.view.CircleViewGroup
-            android:id="@+id/onboardingCircle"
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/onboarding_second_image_height"
-            android:layout_centerInParent="true">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/onboarding_2_sun"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/onboarding_2_moon"/>
-        </com.yahoo.mobile.client.android.atom.ui.view.CircleViewGroup>
-
-        <com.yahoo.mobile.client.android.atom.ui.view.OnboardingDocumentView
-            android:id="@+id/onboardingDocumentView"
+        <com.skywalker.yahoonewsdigest.OnboardingDocumentView
+            android:id="@+id/OnboardingDocumentView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvOnboardingTitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/onboardingCircleGroup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/onboarding_second_title_margin_top"
-        android:text="@string/twice_a_day"
-        android:textSize="@dimen/onboarding_title_text_size"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvOnboardingDescription2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvOnboardingTitle2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/onboarding_second_desc_margin_top"
-        android:gravity="center"
-        android:text="@string/twice_a_day_description"
-        android:textSize="@dimen/onboarding_desc_text_size"/>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvOnboardingTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/twice_a_day"
+            android:textSize="@dimen/onboarding_title_text_size"
+            />
+
+        <TextView
+            android:id="@+id/tvOnboardingDescription2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/twice_a_day_description"
+            android:textSize="@dimen/onboarding_desc_text_size"
+            />
+    </LinearLayout>
+</LinearLayout>

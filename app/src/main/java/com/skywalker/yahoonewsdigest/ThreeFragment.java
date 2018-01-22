@@ -3,7 +3,6 @@ package com.skywalker.yahoonewsdigest;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 
 /*******************************
  * Created by liuqiang          *
@@ -12,21 +11,25 @@ import android.widget.ImageView;
  *******************************/
 
 public class ThreeFragment extends BaseFragment {
-    private ImageView mImageView;
+    private CircleViewGroup mCircleViewGroup;
 
     @Override
     protected void initView(LayoutInflater inflater, View view, Bundle savedInstanceState) {
-        mImageView = view.findViewById(R.id.image);
+
+        mCircleViewGroup=view.findViewById(R.id.image);
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_3;
+        return R.layout.onboarding_page3;
     }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        mImageView.setTranslationX(-positionOffsetPixels * 0.25f);
+        float p = position + positionOffset;
+        if (p > 1 && p <= 2){
+            mCircleViewGroup.moveCircles(position,positionOffset);
+        }
     }
 
     @Override

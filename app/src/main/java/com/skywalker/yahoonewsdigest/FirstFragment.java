@@ -30,7 +30,7 @@ public class FirstFragment extends BaseFragment {
     private AnimatorSet mAnimatorSet;
 
     private HashMap<ImageView, Float> mOriginalXValuesMap = new HashMap<>();
-    private HashMap<ImageView,Float> mMap=new HashMap<>();
+    private HashMap<ImageView, Float> mMap = new HashMap<>();
 
     private final static String TAG = "FirstFragment";
 
@@ -49,7 +49,7 @@ public class FirstFragment extends BaseFragment {
         view.post(new Runnable() {
             @Override
             public void run() {
-                float x=1080;
+                float x = 1080;
                 getOriginalPositions(x);
             }
         });
@@ -72,14 +72,14 @@ public class FirstFragment extends BaseFragment {
         mOriginalXValuesMap.put(mAtomMap, mAtomMap.getX());
         mOriginalXValuesMap.put(mAtomWikipedia, mAtomWikipedia.getX());
 
-        mMap.put(mMainbox, mMainbox.getX()/x);
-        mMap.put(mAtomVideo, mAtomVideo.getX()/x);
-        mMap.put(mAtomInfographic, mAtomInfographic.getX()/x);
+        mMap.put(mMainbox, mMainbox.getX() / x);
+        mMap.put(mAtomVideo, mAtomVideo.getX() / x);
+        mMap.put(mAtomInfographic, mAtomInfographic.getX() / x);
         mMap.put(mAtomStockchart, mAtomStockchart.getX());
-        mMap.put(mAtomSound, mAtomSound.getX()/x);
-        mMap.put(mAtomQuote, mAtomQuote.getX()/x);
-        mMap.put(mAtomMap, mAtomMap.getX()/x);
-        mMap.put(mAtomWikipedia, mAtomWikipedia.getX()/x);
+        mMap.put(mAtomSound, mAtomSound.getX() / x);
+        mMap.put(mAtomQuote, mAtomQuote.getX() / x);
+        mMap.put(mAtomMap, mAtomMap.getX() / x);
+        mMap.put(mAtomWikipedia, mAtomWikipedia.getX() / x);
 
     }
 
@@ -113,7 +113,7 @@ public class FirstFragment extends BaseFragment {
     private void moveTheSpheres(float pageWidth) {
 
 
-        Log.e("positionOffsetPixels",""+pageWidth);
+        //Log.e("positionOffsetPixels",""+pageWidth);
         float videoPosition = (float) (0.15 * pageWidth);
         if (videoPosition > (-1 * mOriginalXValuesMap.get(mAtomVideo))) {
 
@@ -199,10 +199,11 @@ public class FirstFragment extends BaseFragment {
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
         float p = position + positionOffset;
         if (p > 0 && p < 1) {
             moveTheSpheres(positionOffsetPixels);
-            Log.e("FirstFragment", "onPageScrolled-->" + positionOffsetPixels);
+            Log.e("FirstFragment", "onPageScrolled-->" + positionOffset);
         }
 
     }
