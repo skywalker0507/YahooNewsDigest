@@ -17,7 +17,7 @@ import android.view.View;
  * data: 2018/1/6               *
  *******************************/
 
-public class CircleViewGroup extends View {
+public class CircleGroupView extends View {
 
     private Bitmap[] mCircles = new Bitmap[6];
     private Path mPath = new Path();
@@ -36,15 +36,15 @@ public class CircleViewGroup extends View {
 
     private PathMeasure mPathMeasure;
 
-    public CircleViewGroup(Context context) {
+    public CircleGroupView(Context context) {
         this(context, null);
     }
 
-    public CircleViewGroup(Context context, AttributeSet attrs) {
+    public CircleGroupView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleViewGroup(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CircleGroupView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -56,12 +56,13 @@ public class CircleViewGroup extends View {
     }
 
     private void init() {
-        mCircles[0] = Utils.getCircularBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom01));
-        mCircles[1] = Utils.getCircularBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom02));
-        mCircles[2] = Utils.getCircularBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom03));
-        mCircles[3] = Utils.getCircularBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom04));
-        mCircles[4] = Utils.getCircularBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom05));
-        mCircles[5] = Utils.getCircularBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom06));
+
+        mCircles[0] = BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom01);
+        mCircles[1] = BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom02);
+        mCircles[2] = BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom03);
+        mCircles[3] = BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom04);
+        mCircles[4] = BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom05);
+        mCircles[5] = BitmapFactory.decodeResource(getResources(), R.drawable.onboarding_3_atom06);
 
         for (int i = 0; i < mPosition.length; i++) {
             mPosition[i] = i * mMax / 6;
