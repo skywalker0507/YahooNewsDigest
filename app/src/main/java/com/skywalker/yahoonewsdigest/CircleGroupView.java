@@ -17,7 +17,7 @@ import android.view.View;
  * data: 2018/1/6               *
  *******************************/
 
-public class CircleViewGroup extends View {
+public class CircleGroupView extends View {
 
     private Bitmap[] mCircles = new Bitmap[6];
     private Path mPath = new Path();
@@ -36,15 +36,15 @@ public class CircleViewGroup extends View {
 
     private PathMeasure mPathMeasure;
 
-    public CircleViewGroup(Context context) {
+    public CircleGroupView(Context context) {
         this(context, null);
     }
 
-    public CircleViewGroup(Context context, AttributeSet attrs) {
+    public CircleGroupView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleViewGroup(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CircleGroupView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -52,7 +52,7 @@ public class CircleViewGroup extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        setMeasuredDimension((RADIUS+PADDING) * 2 , (RADIUS+PADDING) * 2);
+        setMeasuredDimension((RADIUS + PADDING) * 2, (RADIUS + PADDING) * 2);
     }
 
     private void init() {
@@ -111,11 +111,7 @@ public class CircleViewGroup extends View {
 
     public void moveCircles(int position, float positionOffset) {
 
-        if (position == 2) {
-            mMove = false;
-        } else {
-            mMove = true;
-        }
+        mMove = position != 2;
 
         p = 1 - positionOffset;
         postInvalidateOnAnimation();

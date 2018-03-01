@@ -11,7 +11,7 @@ import android.view.View;
  *******************************/
 
 public class ThreeFragment extends BaseFragment {
-    private CircleViewGroup mCircleViewGroup;
+    private CircleGroupView mCircleViewGroup;
 
     @Override
     protected void initView(LayoutInflater inflater, View view, Bundle savedInstanceState) {

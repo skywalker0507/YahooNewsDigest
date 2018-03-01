@@ -8,17 +8,15 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
 /*******************************
  * Created by liuqiang          *
  *******************************
- * data: 2018/1/23               *
+ * data: 2018/1/30               *
  *******************************/
 
-public class BezierCureView extends View {
+public class SnapBezierView extends View {
 
     private float mCenter1X;
     private float mCenter1Y;
@@ -39,29 +37,34 @@ public class BezierCureView extends View {
 
     private Path mPath;
 
+    private float mX1;
+    private float mX2;
 
-    public BezierCureView(Context context) {
+    private static final int MAX_LENGTH = 300;
+    private static final int MINI_LENGTH = 180;
+
+    private float mLength;
+
+    public SnapBezierView(Context context) {
         this(context,null);
     }
 
-    public BezierCureView(Context context, @Nullable AttributeSet attrs) {
+    public SnapBezierView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public BezierCureView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SnapBezierView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
-
-
     private void init(){
-        mCenter1X=300;
-        mCenter1Y=300;
+        mCenter1X=150;
+        mCenter1Y=600;
         mRadius1=100;
 
 
-        mCenter2X=600;
-        mCenter2Y=800;
+        mCenter2X=mCenter1X+mRadius1+MINI_LENGTH;
+        mCenter2Y=600;
         mRadius2=100;
 
         mPaint=new Paint();
@@ -77,14 +80,8 @@ public class BezierCureView extends View {
         mPoint4=new PointF();
 
         mPath=new Path();
-    }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        mCenter2X=event.getX();
-        mCenter2Y=event.getY();
-        invalidate();
-        return true;
+
     }
 
     @Override
@@ -94,42 +91,28 @@ public class BezierCureView extends View {
         canvas.drawCircle(mCenter1X, mCenter1Y, mRadius1, mPaint);
         canvas.drawCircle(mCenter2X, mCenter2Y, mRadius2, mPaint);
 
-        float d = (float) Math.sqrt((mCenter2X - mCenter1X) * (mCenter2X - mCenter1X) + (mCenter2Y - mCenter1Y) * (mCenter2Y - mCenter1Y));
-        float cos = (mCenter2X - mCenter1X) / d;
+        mLength = (float) Math.sqrt((mCenter2X - mCenter1X) * (mCenter2X - mCenter1X) + (mCenter2Y - mCenter1Y) * (mCenter2Y - mCenter1Y));
 
-        float a = (float) (Math.acos(cos) * 180 / Math.PI);
+        mX1=(mRadius1*mLength)/(mRadius1+mRadius2);
+        mX2=(mRadius2*mLength)/(mRadius1+mRadius2);
 
-        if (mCenter2Y - mCenter1Y < 0) {
-            a = -a;
-        }
+        mControl.x=mCenter1X+mX1;
+        mControl.y=600;
+        double r=Math.atan(mRadius1/mX1);
+        double l1=Math.sqrt((mControl.x-mCenter1X)*(mControl.x-mCenter1X)-mRadius1*mRadius1);
+        mPoint1.x= (float) (mCenter1X+(mX1-l1*Math.cos(r)));
+        mPoint1.y=(float)(mCenter1Y-l1*Math.sin(r));
 
-        Log.e("degrees", "" + a);
-        canvas.save();
-        canvas.translate(mCenter1X, mCenter1Y);
-        canvas.rotate(a);
+        mPoint2.x= (float) (mCenter1X+(mX1-l1*Math.cos(r)));
+        mPoint2.y=(float)(mCenter1Y+l1*Math.sin(r));
 
-        float distance = d / 2;
-        //distance=Math.abs(100-distance);
-        Log.e("distance",""+distance);
-        mControl.x = distance;
-        mControl.y = 0;
 
-        double r1 = Math.acos(mRadius1 / distance);
+        double l2=Math.sqrt((mControl.x-mCenter2X)*(mControl.x-mCenter2X)-mRadius2*mRadius2);
+        mPoint3.x= (float) (mCenter2X-(mX2-l2*Math.cos(r)));
+        mPoint3.y=(float)(mCenter2Y-l2*Math.sin(r));
 
-        mPoint1.x = (float) (mRadius1 * Math.cos(r1));
-        mPoint1.y = (float) (mRadius1 * Math.sin(r1));
-
-        mPoint2.x = (float) (mRadius1 * Math.cos(r1));
-        mPoint2.y = (float) (-mRadius1 * Math.sin(r1));
-
-        double r2 = Math.acos(mRadius2 / distance);
-
-        mPoint3.x = (float) (d - mRadius2 * Math.cos(r2));
-        mPoint3.y = (float) (mRadius2 * Math.sin(r2));
-
-        mPoint4.x = (float) (d - mRadius2 * Math.cos(r2));
-        mPoint4.y = (float) (-mRadius2 * Math.sin(r2));
-
+        mPoint4.x= (float) (mCenter2X-(mX2-l2*Math.cos(r)));
+        mPoint4.y=(float)(mCenter2Y+l2*Math.sin(r));
 
         mPath.reset();
         mPath.moveTo(mPoint1.x, mPoint1.y);
@@ -137,8 +120,14 @@ public class BezierCureView extends View {
         mPath.lineTo(mPoint4.x, mPoint4.y);
         mPath.quadTo(mControl.x, mControl.y, mPoint2.x, mPoint2.y);
 
+        mPaint.setColor(Color.GREEN);
+        canvas.drawPoint(mControl.x,mControl.y,mPaint);
+        canvas.drawPoint(mPoint1.x,mPoint1.y,mPaint);
+        canvas.drawPoint(mPoint2.x,mPoint2.y,mPaint);
+        canvas.drawPoint(mPoint3.x,mPoint3.y,mPaint);
+        canvas.drawPoint(mPoint4.x,mPoint4.y,mPaint);
         canvas.drawPath(mPath, mPaint);
-        canvas.restore();
+
 
     }
 }

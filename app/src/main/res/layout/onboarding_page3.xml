@@ -10,7 +10,7 @@
         android:layout_height="0dp"
         android:layout_weight="5">
 
-        <com.skywalker.yahoonewsdigest.CircleViewGroup
+        <com.skywalker.yahoonewsdigest.CircleGroupView
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
