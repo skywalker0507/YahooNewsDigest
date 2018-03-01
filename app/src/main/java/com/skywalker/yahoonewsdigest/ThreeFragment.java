@@ -11,12 +11,12 @@ import android.view.View;
  *******************************/
 
 public class ThreeFragment extends BaseFragment {
-    private CircleViewGroup mCircleViewGroup;
+    private CircleGroupView mCircleGroupView;
 
     @Override
     protected void initView(LayoutInflater inflater, View view, Bundle savedInstanceState) {
 
-        mCircleViewGroup=view.findViewById(R.id.image);
+        mCircleGroupView =view.findViewById(R.id.circleGroupView);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ThreeFragment extends BaseFragment {
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         float p = position + positionOffset;
         if (p > 1 && p <= 2){
-            mCircleViewGroup.moveCircles(position,positionOffset);
+            mCircleGroupView.moveCircles(position,positionOffset);
         }
     }
 
